@@ -2,56 +2,56 @@ package models
 
 type (
 	Order struct {
-		order_uid          string
-		track_bumber       string
-		entry              string
-		delivery           Delivery
-		payment            Payment
-		items              []Item
-		locale             string
-		internal_signature string
-		customer_id        string
-		delivery_service   string
-		shardkey           string
-		sm_id              int
-		date_created       string
-		oof_shard          string
+		Order_uid          string   `json:"order_uid"`
+		Track_number       string   `json:"track_number"`
+		Entry              string   `json:"entry"`
+		Delivery           Delivery `json:"delivery"`
+		Payment            Payment  `json:"payment"`
+		Items              []Item   `json:"items"`
+		Locale             string   `json:"locale"`
+		Internal_signature string   `json:"internal_signature"`
+		Customer_id        string   `json:"customer_id"`
+		Delivery_service   string   `json:"delivery_service"`
+		Shardkey           string   `json:"shardkey"`
+		Sm_id              int      `json:"sm_id"`
+		Date_created       string   `json:"date_created"`
+		Oof_shard          string   `json:"oof_shard"`
 	}
 
 	Delivery struct {
-		name    string
-		phone   string
-		zip     string
-		city    string
-		address string
-		region  string
-		email   string
+		Name    string `json:"name"`
+		Phone   string `json:"phone"`
+		Zip     string `json:"zip"`
+		City    string `json:"city"`
+		Address string `json:"address"`
+		Region  string `json:"regin"`
+		Email   string `json:"email"`
 	}
 
 	Payment struct {
-		transaction   string
-		request_id    string
-		currency      string
-		provider      string
-		amount        int
-		payment_dt    int
-		bank          string
-		delivery_cost int
-		goods_total   int
-		custom_fee    int
+		Transaction   string `json:"transaction"`
+		Request_id    string `json:"request_id"`
+		Currency      string `json:"currency"`
+		Provider      string `json:"provider"`
+		Amount        int    `json:"amount"`
+		Payment_dt    int    `json:"payment_dt"`
+		Bank          string `json:"bank"`
+		Delivery_cost int    `json:"delivery_cost"`
+		Goods_total   int    `json:"goods_total"`
+		Custom_fee    int    `json:"custom_fee"`
 	}
 
 	Item struct {
-		chrt_id      int
-		track_number string
-		price        int
-		rid          string
-		name         string
-		sale         int
-		size         string
-		total_price  int
-		nm_id        int
-		brand        string
-		status       int16
+		Chrt_id      int    `json:"chrt_id"`
+		Track_number string `json:"track_number"`
+		Price        int    `json:"price"`
+		Rid          string `json:"rid"`
+		Name         string `json:"name"`
+		Sale         int    `json:"sale"`
+		Size         string `json:"size"`
+		Total_price  int    `json:"total_price"`
+		Nm_id        int    `json:"nm_id"`
+		Brand        string `json:"brand"`
+		Status       int16  `json:"status"`
 	}
 )
