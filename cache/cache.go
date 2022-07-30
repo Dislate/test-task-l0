@@ -8,28 +8,29 @@ import (
 
 type Cache struct {
 	sync.RWMutex
-	items map[int]interface{}
+	items map[string]interface{}
 }
 
 func New() *Cache {
-	items := make(map[int]interface{})
+	items := make(map[string]interface{})
 	cache := Cache{items: items}
 
 	return &cache
 }
 
-func (c *Cache) Set(key int, value models.Order) {
+func (c *Cache) Set(value models.Order) {
 	c.Lock()
 	defer c.Unlock()
 
-	c.items[key] = value
+	uid := value.Order_uid
+	c.items[uid] = value
 }
 
-func (c *Cache) Get(key int) (interface{}, bool) {
+func (c *Cache) Get(uid string) (interface{}, bool) {
 	c.RLock()
 	defer c.RUnlock()
 
-	item, found := c.items[key]
+	item, found := c.items[uid]
 
 	if !found {
 		return nil, false
